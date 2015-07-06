@@ -1,0 +1,16 @@
+id;name;code;birthdate_day;birthdate_month;birthdate_year;street_name;street_number;postalcode;city;swimmingcertificates
+1;Daniël Draisma;8866320313570;25;December;2005;Hellingweg;58;2583 WH;Den Haag;A B
+2;Dion Mac Lennan;8424512647652;6;December;2006;Thomsonlaan;164;2565 CD;Den Haag;Geen data gevonden
+3;Ivan Wolters;8321095792307;10;Mei;2006;Hanenburglaan;389;2565 GP;Den Haag;Geen data gevonden
+4;Jasper Draisma;8581768474767;9;September;2004;Hellingweg;58;2583 WH;Den Haag;A B
+5;Johan Meesters;8143053658650;4;September;2004;Laan van Vredestein;105;2552 DV;Den Haag;A B
+6;Koen Draisma;8821809147619;25;December;2005;Hellingweg;58;2583 WH;Den Haag;A B
+7;Manu Weij;8829662703140;17;Mei;2005;Pauwenlaan;12;2566 TH;Den Haag;A B
+8;Milan Densborn;8473896554131;29;April;2004;Fuchsiastraat;77;2565 PM;Den Haag;A B
+9;Rafi Dib;8858248621554;11;November;2004;Fuchsiastraat;61;2565 PM;Den Haag;A B C
+10;Sebastiaan Valkenhoff;8615675694069;15;Mei;2004;Thorbeckelaan;194;2564 BV;Den Haag;A B C
+11;Thijmen;8666944620661;30;Maart;2005;Irisstraat;217;2565 TL;Den Haag;A B
+12;Thijs Grossat;8649836652643;23;November;2005;Salvador Allendestraat;12;2552 ND;Den Haag;A B C
+13;Timo van Brunschot;8145456325122;15;April;2004;Laan van Poot;128;2566 EC;Den Haag;A B
+14;Tom Salome;8439066456667;4;December;2005;Woudenbergstraat;22 A;2546 VS;Den Haag;A B
+15;Yoshua van Eenige;8427166732910;26;December;2006;Hazelaarstraat ;54;2563 VM;Den Haag;A B C
