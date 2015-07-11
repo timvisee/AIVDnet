@@ -20,7 +20,7 @@ public class LoginPanelController : MonoBehaviour {
     public float validationDuration = 2.0f;
 
     private Animator loginPanelAnimator;
-    private InfoPanelController infoPanelControllerController;
+    //private InfoPanelController infoPanelControllerController;
     private InputField passFieldInput;
     private Animator passFieldAnimator;
     private Button loginButtonButton;
@@ -33,15 +33,13 @@ public class LoginPanelController : MonoBehaviour {
 
     private bool showInfoPanelOnHide = false;
 
-    private bool isSown = false;
-
 	/**
      * Initialize.
      */
 	void Start () {
 	    // Get the component instances
         loginPanelAnimator = loginPanel.GetComponent<Animator>();
-        infoPanelControllerController = infoPanelController.GetComponent<InfoPanelController>();
+        //infoPanelControllerController = infoPanelController.GetComponent<InfoPanelController>();
         passFieldInput = passField.GetComponent<InputField>();
         passFieldAnimator = passField.GetComponent<Animator>();
         loginButtonButton = loginButton.GetComponent<Button>();
@@ -94,7 +92,7 @@ public class LoginPanelController : MonoBehaviour {
         }
 
         // Handle the enter keypress
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetAxis("Submit") > 0)
             DoLogin();
     }
 
@@ -102,9 +100,6 @@ public class LoginPanelController : MonoBehaviour {
      * Show the main panel.
      */
     public void ShowPanel() {
-        // Set the shown flag
-        isSown = true;
-
         // Trigger the spawn animation
         loginPanelAnimator.SetTrigger("spawn");
 
@@ -135,9 +130,6 @@ public class LoginPanelController : MonoBehaviour {
             //infoPanelControllerController.ShowPanel();
             connectionPanelController.ShowPanel();
         }
-
-        // Reset the shown flag
-        isSown = false;
     }
 
     /**

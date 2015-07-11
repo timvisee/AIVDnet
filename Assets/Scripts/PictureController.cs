@@ -51,10 +51,9 @@ public class PictureController : MonoBehaviour {
     public void LoadPicture(string id) {
         // Try to load the picture
         Texture2D pic;
-        try
-        {
+        try {
             pic = (Texture2D)Resources.Load(picturesPath + id, typeof(Texture2D));
-        } catch (System.Exception e) {
+        } catch(System.Exception) {
             pic = (Texture2D)Resources.Load(picturesPath + "default", typeof(Texture2D));
         }
 

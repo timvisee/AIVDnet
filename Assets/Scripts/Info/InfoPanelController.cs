@@ -36,6 +36,7 @@ public class InfoPanelController : MonoBehaviour {
     public float nextCharDelayMax = 0.075f;
     public float nextLabelGlitchDelayMin = 0.03f;
     public float nextLabelGlitchDelayMax = 0.15f;
+
     public float artifactsSpawnDuration = 3.0f;
     public float artifactsDecayDuration = 0.5f;
     public float artifactsNoiseIntensityMultiplier = 2.0f;
@@ -49,18 +50,18 @@ public class InfoPanelController : MonoBehaviour {
     private Animator infoPanelAnimator;
     private LoginPanelController loginPanelController;
     private AgentManager agentManager;
-    private Image pictureImage;
+    //private Image pictureImage;
     private PictureController pictureController;
-    private Button optionsButtonButton;
-    private Button credentialsButtonButton;
-    private Button logoutButtonButton;
+    //private Button optionsButtonButton;
+    //private Button credentialsButtonButton;
+    //private Button logoutButtonButton;
     private List<Text> labelsText = new List<Text>();
     private List<Text> labelValuesText = new List<Text>();
     private List<string> labelsTextDefaults = new List<string>();
     private List<Text> labelsSpawn = new List<Text>();
     private List<string> labelsSpawnValues = new List<string>();
     private int labelCount = 0;
-    private int labelCountTotal = 0;
+    //private int labelCountTotal = 0;
 
     private float spawnPanelAt = -1.0f;
     private float updateGlitchedLabelsAt = 0.0f;
@@ -85,11 +86,11 @@ public class InfoPanelController : MonoBehaviour {
         infoPanelAnimator = infoPanel.GetComponent<Animator>();
         loginPanelController = loginPanel.GetComponent<LoginPanelController>();
         agentManager = agentManagerObject.GetComponent<AgentManager>();
-        pictureImage = picture.GetComponent<Image>();
+        //pictureImage = picture.GetComponent<Image>();
         pictureController = picture.GetComponent<PictureController>();
-        optionsButtonButton = optionsButton.GetComponent<Button>();
-        credentialsButtonButton = credentialsButton.GetComponent<Button>();
-        logoutButtonButton = logoutButton.GetComponent<Button>();
+        //optionsButtonButton = optionsButton.GetComponent<Button>();
+        //credentialsButtonButton = credentialsButton.GetComponent<Button>();
+        //logoutButtonButton = logoutButton.GetComponent<Button>();
 
         // Get the text components from the labels
         foreach(GameObject label in labels)
@@ -99,7 +100,7 @@ public class InfoPanelController : MonoBehaviour {
 
         // Get the label count and total label count
         labelCount = Mathf.Max(labelsText.Count, labelValuesText.Count);
-        labelCountTotal = labelsText.Count + labelValuesText.Count;
+        //labelCountTotal = labelsText.Count + labelValuesText.Count;
 
         // Store the default strings
         foreach (Text text in labelsText)
@@ -128,7 +129,7 @@ public class InfoPanelController : MonoBehaviour {
             ShowPanel();
         }
 
-        if (updateNextCharAt <= Time.time && updateNextCharAt >= 0.0f && curLabelIndex < labelsSpawn.Count) {
+        if (updateNextCharAt <= Time.time && updateNextCharAt >= 0.0f && curLabelIndex < labelsSpawn.Count && panelShown) {
             // Create some variables to store the strings and label instances in
             Text label = labelsSpawn[curLabelIndex];
             string cur = "";
@@ -324,6 +325,9 @@ public class InfoPanelController : MonoBehaviour {
 
         // Focus the input field
         FocusInput();*/
+
+        // Hide any artifacts
+        HideArtifacts();
 
         // Set the panel shown flag
         panelShown = false;
