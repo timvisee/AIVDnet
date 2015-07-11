@@ -62,8 +62,7 @@ public class ConnectionPanelController : MonoBehaviour {
         }
 
         // Check whether we should update the amount
-        if (nextUpdateAt <= Time.time && nextUpdateAt >= 0.0f && successAt < 0.0f)
-        {
+        if (nextUpdateAt <= Time.time && nextUpdateAt >= 0.0f && successAt < 0.0f) {
             // Update the amount
             if (!failed) {
                 // Increase the amount
@@ -99,8 +98,7 @@ public class ConnectionPanelController : MonoBehaviour {
             nextUpdateAt = Time.time + Random.Range(intervalMin, intervalMax);
 
             // Check whether the progress is completed
-            if (amount >= amountTo && successAt < 0.0f)
-            {
+            if (amount >= amountTo && successAt < 0.0f) {
                 // Disable the update timer
                 nextUpdateAt = -1.0f;
 
@@ -137,10 +135,6 @@ public class ConnectionPanelController : MonoBehaviour {
     }
 
     public void Stop() {
-        // Set and apply the amount to zero
-        /*amount = amountFrom;
-        amountCurrent = amountFrom;*/
-
         // Set the update timer
         nextUpdateAt = -1.0f;
     }
@@ -178,12 +172,17 @@ public class ConnectionPanelController : MonoBehaviour {
         statusText.text = text;
     }
 
+    /**
+     * Flash the success status.
+     */
     private void FlashSuccess() {
         progressIndicatorAnimator.SetTrigger("success");
     }
 
-    private void FlashFailure()
-    {
+    /**
+     * Flash the failure status.
+     */
+    private void FlashFailure() {
         progressIndicatorAnimator.SetTrigger("fail");
     }
 }

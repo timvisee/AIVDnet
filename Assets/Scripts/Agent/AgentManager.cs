@@ -27,8 +27,7 @@ public class AgentManager : MonoBehaviour {
                 agents.Add(new Agent(lines[i]));
     }
 
-    public bool IsAgentWithCode(string code)
-    {
+    public bool IsAgentWithCode(string code) {
         // Trim the code
         code.Trim();
 
@@ -39,30 +38,26 @@ public class AgentManager : MonoBehaviour {
         return false;
     }
 
-    public Agent GetAgentWithCode(string code)
-    {
+    public Agent GetAgentWithCode(string code) {
         // Trim the code
         code.Trim();
 
         // Check whether there is an agent with this code
-        foreach (Agent a in agents)
-            if (a.GetCode().Equals(code))
+        foreach(Agent a in agents)
+            if(a.GetCode().Equals(code))
                 return a;
         return null;
     }
 
-    public Agent GetCurrentAgent()
-    {
+    public Agent GetCurrentAgent() {
         return this.current;
     }
 
-    public void SetCurrentAgent(Agent agent)
-    {
+    public void SetCurrentAgent(Agent agent) {
         this.current = agent;
     }
 
-    public void SetCurrentAgent(string code)
-    {
+    public void SetCurrentAgent(string code) {
         this.current = GetAgentWithCode(code);
     }
 }

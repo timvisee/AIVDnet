@@ -19,6 +19,7 @@ public class Agent {
         // Split the data
         string[] parts = data.Split(';');
 
+        // Set the agent data
         id = parts[0];
         name = parts[1];
         code = parts[2];
@@ -44,23 +45,19 @@ public class Agent {
         return code;
     }
 
-    public string GetBirthday()
-    {
+    public string GetBirthday() {
         return birthdateDay + " " + birthdateMonth + " " + birthdateYear;
     }
 
-    public string GetStreet()
-    {
+    public string GetStreet() {
         return streetName + " " + streetNumber;
     }
 
-    public string GetPostalCode()
-    {
+    public string GetPostalCode()  {
         return postCode + " " + city;
     }
 
-    public string GetSwimCert()
-    {
+    public string GetSwimCert() {
         return swimCert;
     }
 }

@@ -50,18 +50,13 @@ public class InfoPanelController : MonoBehaviour {
     private Animator infoPanelAnimator;
     private LoginPanelController loginPanelController;
     private AgentManager agentManager;
-    //private Image pictureImage;
     private PictureController pictureController;
-    //private Button optionsButtonButton;
-    //private Button credentialsButtonButton;
-    //private Button logoutButtonButton;
     private List<Text> labelsText = new List<Text>();
     private List<Text> labelValuesText = new List<Text>();
     private List<string> labelsTextDefaults = new List<string>();
     private List<Text> labelsSpawn = new List<Text>();
     private List<string> labelsSpawnValues = new List<string>();
     private int labelCount = 0;
-    //private int labelCountTotal = 0;
 
     private float spawnPanelAt = -1.0f;
     private float updateGlitchedLabelsAt = 0.0f;
@@ -86,11 +81,7 @@ public class InfoPanelController : MonoBehaviour {
         infoPanelAnimator = infoPanel.GetComponent<Animator>();
         loginPanelController = loginPanel.GetComponent<LoginPanelController>();
         agentManager = agentManagerObject.GetComponent<AgentManager>();
-        //pictureImage = picture.GetComponent<Image>();
         pictureController = picture.GetComponent<PictureController>();
-        //optionsButtonButton = optionsButton.GetComponent<Button>();
-        //credentialsButtonButton = credentialsButton.GetComponent<Button>();
-        //logoutButtonButton = logoutButton.GetComponent<Button>();
 
         // Get the text components from the labels
         foreach(GameObject label in labels)
@@ -100,7 +91,6 @@ public class InfoPanelController : MonoBehaviour {
 
         // Get the label count and total label count
         labelCount = Mathf.Max(labelsText.Count, labelValuesText.Count);
-        //labelCountTotal = labelsText.Count + labelValuesText.Count;
 
         // Store the default strings
         foreach (Text text in labelsText)
@@ -199,8 +189,7 @@ public class InfoPanelController : MonoBehaviour {
             removeMaterialTimed.Remove(key);
 
         // Update glitched labels
-        if (updateGlitchedLabelsAt <= Time.time)
-        {
+        if (updateGlitchedLabelsAt <= Time.time) {
             updateGlitchedLabelsAt = Time.time + Random.Range(nextLabelGlitchDelayMin, nextLabelGlitchDelayMax);
             
             foreach (Text label in glitchedLabels) {
@@ -253,8 +242,7 @@ public class InfoPanelController : MonoBehaviour {
         }
     }
 
-    public void ShowArtifacts()
-    {
+    public void ShowArtifacts() {
         // Set the flag
         showArtifacts = true;
 
@@ -262,8 +250,7 @@ public class InfoPanelController : MonoBehaviour {
         artifactsTime = Time.time;
     }
 
-    public void HideArtifacts()
-    {
+    public void HideArtifacts() {
         // Set the flag
         showArtifacts = false;
 
@@ -277,8 +264,7 @@ public class InfoPanelController : MonoBehaviour {
         curCharIndex = 0;
 
         // Clear all labels and set the proper material
-        foreach (Text text in labelsSpawn)
-        {
+        foreach (Text text in labelsSpawn) {
             text.text = "";
             text.material = textGlitchMaterial;
         }
@@ -290,8 +276,7 @@ public class InfoPanelController : MonoBehaviour {
     /**
      * Show the main panel.
      */
-    public void ShowPanel()
-    {
+    public void ShowPanel() {
         // Set the shown flag
         panelShown = true;
 
@@ -312,19 +297,9 @@ public class InfoPanelController : MonoBehaviour {
     /**
      * Hide the main panel.
      */
-    public void HidePanel()
-    {
+    public void HidePanel() {
         // Trigger the spawn animation
         infoPanelAnimator.SetTrigger("decay");
-
-        /* // Reset the input field text
-        SetInput("");
-
-        // Enable all controls
-        SetComponentsInteractable(true);
-
-        // Focus the input field
-        FocusInput();*/
 
         // Hide any artifacts
         HideArtifacts();

@@ -62,46 +62,31 @@ public class PictureController : MonoBehaviour {
 
         // Set the picture
         imageComp.sprite = sprite;
-
-        /*string path = "C:\\Users\\Tim\\Pictures\\Avatar\\512x512\\Avatar.png";
-        byte[] data = File.ReadAllBytes(path);
-        Texture2D texture = new Texture2D(512, 512, TextureFormat.ARGB32, false);
-        texture.LoadImage(test.bytes);
-        texture.name = Path.GetFileNameWithoutExtension(path);*/
     }
 	
 	// Update is called once per frame
 	void Update () {
         if(increaseAt <= Time.time && increaseAt >= 0.0f) {
             currentAmount += Random.Range(slideAmountMin, slideAmountMax);
-
             increaseAt = Time.time + Random.Range(slideDelayMin, slideDelayMax);
 
             imageComp.fillAmount = currentAmount;
         }
 
         if (currentAmount >= 1.0f && stopGlitchAt < 0.0f)
-        {
             stopGlitchAt = Time.time + glitchStopDelay;
-        }
 
-        if(stopGlitchAt <= Time.time && stopGlitchAt >= 0.0f) {
-            if (!alwaysGlitch) {
-                imageComp.material.SetFloat("_DispGlitchOn", 0);
-                imageComp.material.SetFloat("_ColorGlitchOn", 0);
-            }
-            
+        if (stopGlitchAt <= Time.time && stopGlitchAt >= 0.0f && !alwaysGlitch) {
+            imageComp.material.SetFloat("_DispGlitchOn", 0);
+            imageComp.material.SetFloat("_ColorGlitchOn", 0);
         }
 	}
 
-    public void ShowPicture()
-    {
+    public void ShowPicture() {
         ShowPicture(startDelay);
     }
 
-    public void ShowPicture(float delay)
-    {
-        // Set the start timer
+    public void ShowPicture(float delay) {
         increaseAt = Time.time + delay;
     }
 }

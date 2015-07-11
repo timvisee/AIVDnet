@@ -20,7 +20,6 @@ public class LoginPanelController : MonoBehaviour {
     public float validationDuration = 2.0f;
 
     private Animator loginPanelAnimator;
-    //private InfoPanelController infoPanelControllerController;
     private InputField passFieldInput;
     private Animator passFieldAnimator;
     private Button loginButtonButton;
@@ -217,15 +216,6 @@ public class LoginPanelController : MonoBehaviour {
     private void SetButtonEnabled(bool enabled) {
         loginButtonButton.interactable = enabled;
     }
-
-
-
-
-
-
-
-
-
 
     /**
      * Called when the value in the login input field is changed

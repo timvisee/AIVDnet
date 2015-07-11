@@ -24,6 +24,9 @@ public class CursorController : MonoBehaviour {
         DontDestroyOnLoad(gameObject);
     }
 
+    /**
+     * Set up the cursor.
+     */
     private void SetCursor() {
         // Determine whether to show the cursor based on the platform, show a status message
         bool showCursor = (!(Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.IPhonePlayer)) && useCustomCursor;
